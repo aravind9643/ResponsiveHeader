@@ -1,0 +1,197 @@
+* {
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+nav {
+  background: #046582;
+  height: 80px;
+  width: 100%;
+}
+
+nav .logo {
+  color: #fff;
+  font-size: 35px;
+  padding: 0 100px;
+  line-height: 80px;
+  font-weight: bold;
+  transition: font-size 0.5s;
+}
+
+nav ul {
+  float: right;
+  margin-right: 20px;
+}
+
+nav ul li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+
+nav ul li a {
+  color: white;
+  font-size: 17px;
+  text-transform: uppercase;
+  padding: 5px 17px;
+  border-radius: 5px;
+  /* transition: 0.5s; */
+}
+
+nav ul li a.active,
+a:hover {
+  background-color: #fff;
+  color: black;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.menu-icon {
+  float: right;
+  display: none;
+}
+
+.menu-icon .menu-bars {
+  margin-right: 30px;
+  margin-top: 20px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.menu-icon .menu-bars .bar {
+  height: 4px;
+  width: 40px;
+  margin: 4px;
+  position: relative;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: transform 0.5s;
+}
+
+.circle-loader {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  border: 5px #2541b2 solid;
+  border-top-color: #fff;
+  /* border-bottom-color: #fff; */
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loader .dot {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  margin: 5px;
+  background-color: #2541b2;
+}
+
+.dot.dot1 {
+  animation: jump-up 0.6s 0.1s linear infinite;
+}
+.dot.dot2 {
+  animation: jump-up 0.6s 0.3s linear infinite;
+}
+.dot.dot3 {
+  animation: jump-up 0.6s 0.5s linear infinite;
+}
+
+@keyframes jump-up {
+  50% {
+    transform: translateY(15px);
+    /* opacity: 0.5; */
+  }
+}
+
+#checkbox {
+  display: none;
+}
+
+@media (max-width: 952px) {
+  nav .logo {
+    font-size: 30px;
+    padding: 0 50px;
+  }
+  nav ul li a {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 858px) {
+  .menu-icon {
+    display: block;
+  }
+  nav ul {
+    height: calc(100vh - 80px);
+    background-color: #383e56;
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    left: -100%;
+    text-align: center;
+    transition: left 0.5s;
+  }
+  nav ul li {
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+  nav ul li a.active,
+  a:hover {
+    background-color: unset;
+    color: #fb743e;
+  }
+  #checkbox:checked ~ ul {
+    left: 0;
+  }
+  #checkbox:checked ~ .menu-icon .menu-bars {
+    margin-top: 20px;
+  }
+
+  #checkbox:checked ~ .menu-icon .menu-bars .bar.middle {
+    display: none;
+  }
+
+  #checkbox:checked ~ .menu-icon .menu-bars .bar.top {
+    transform: rotate(45deg);
+    transform-origin: left;
+  }
+  #checkbox:checked ~ .menu-icon .menu-bars .bar.bottom {
+    transform: rotate(-45deg);
+    transform-origin: left;
+    top: 16px;
+  }
+
+  section {
+    background: url('https://www.adweek.com/wp-content/uploads/2020/03/behr-zoom-background-feature-2020.jpg')
+      no-repeat;
+    background-size: cover;
+    height: calc(100vh - 80px);
+  }
+}
